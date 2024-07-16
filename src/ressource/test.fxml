@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml">
+    <HBox fx:id="switchContainer" styleClass="switch-container" onMouseClicked="#toggleSwitch">
+        <Rectangle fx:id="switchBackground" width="50" height="25" arcWidth="25" arcHeight="25" styleClass="switch-background"/>
+        <Circle fx:id="switchThumb" radius="12" styleClass="switch-thumb" translateX="-12"/>
+    </HBox>
+</StackPane>
