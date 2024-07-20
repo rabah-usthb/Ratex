@@ -48,10 +48,10 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <HBox alignment="CENTER" layoutX="50.0" layoutY="229.0" prefHeight="52.0" prefWidth="150.0">
+      <HBox alignment="CENTER" layoutX="50.0" layoutY="223.0" prefHeight="37.0" prefWidth="139.0">
          <children>
-            <Button fx:id="MonoButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchButtonToPoly" prefHeight="55.0" prefWidth="97.0" text="Mono" />
-            <Button fx:id="PolyButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchButtonToMono" prefHeight="55.0" prefWidth="97.0" text="Poly" />
+            <Button fx:id="MonoButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchButtonToPoly" prefHeight="97.0" prefWidth="44.0" text="Mono" HBox.hgrow="ALWAYS" />
+            <Button fx:id="PolyButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchButtonToMono" text="Poly" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <TextField fx:id="MarginField" layoutX="460.0" layoutY="116.0" prefHeight="27.0" prefWidth="270.0" />

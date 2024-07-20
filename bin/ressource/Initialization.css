@@ -2,12 +2,20 @@
 -fx-background-color: #353535;	
 }
 
+#MarginField,
+#TopField,
+#LeftField,
+#RightField,
+#BottomField{
+	-fx-background-color: black;
+	-fx-border-color:white;
+	-fx-text-fill :white;
+	-fx-border-radius:8px;
+	-fx-background-radius:8px;
+	-fx-border-width:1.5px;
+	-fx-pref-height:35px;
+}
 
-
-.hbox {
-    -fx-padding: 0;
-   -fx-background-color: pink;
-    }
 
 .combo-box{
 		-fx-border-color: #F4F1F1;
