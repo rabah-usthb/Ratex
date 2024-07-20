@@ -2,6 +2,13 @@
 -fx-background-color: #353535;	
 }
 
+
+
+.hbox {
+    -fx-padding: 0;
+   -fx-background-color: pink;
+    }
+
 .combo-box{
 		-fx-border-color: #F4F1F1;
 		-fx-background-color:black;
@@ -38,7 +45,8 @@
 	-fx-text-fill: white;
 	-fx-background-color:black;
 	-fx-padding: 8px;	
-	-fx-border-radius:4px;
+	-fx-border-radius: 15px 0px 0px 15px;
+	-fx-background-radius:15px 0px 0px 15px;
 	-fx-font-size:15px;
 	
 }
@@ -51,4 +59,23 @@
 	-fx-text-fill:#FBF8F8;
 	-fx-font-size:30px;
 }
+
+#MonoButton{
+	-fx-background-color: black;
+	-fx-text-fill: white;
+	-fx-border-radius: 15px 0 0 15px;
+	-fx-background-radius:15px 0 0 15px;
+	-fx-background-insets: 0;
+	-fx-cursor: hand;
+}
+
+#PolyButton{
+	-fx-background-radius: 0 15px 15px 0;	
+	-fx-border-radius: 0 15px 15px 0;  
+	-fx-background-color:#504B4B;
+	-fx-text-fill: #504B4B;
+	-fx-cursor: none;
+}
+
+
 

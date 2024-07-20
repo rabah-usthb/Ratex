@@ -1,24 +1,13 @@
-.switch-container {
-    -fx-alignment: center-left;
-    -fx-padding: 2;
+#MonoButton{
+	-fx-background-color: black;
+	-fx-text-fill: white;
 }
 
-.switch-background {
-    -fx-fill: #ddd;
-    -fx-stroke: #ccc;
-    -fx-stroke-width: 1;
+#PolyButton{
+	-fx-background-color:#504B4B;
+	-fx-text-fill: #504B4B;
 }
 
-.switch-thumb {
-    -fx-fill: white;
-    -fx-stroke: #ccc;
-    -fx-stroke-width: 1;
-}
-
-.switch-on .switch-background {
-    -fx-fill: #4caf50;
-}
-
-.switch-on .switch-thumb {
-    -fx-translate-x: 12;
+#MonoButton:hover{
+	-fx-cursor: hand;
 }

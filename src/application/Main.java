@@ -20,8 +20,8 @@ public class Main extends Application {
         try {
         	
             // Load the FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ressource/test.fxml"));
-            String css = this.getClass().getResource("/ressource/test.css").toExternalForm();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ressource/Initialization.fxml"));
+            String css = this.getClass().getResource("/ressource/Initialization.css").toExternalForm();
             Parent root = loader.load();
             // Set the FXML content to the scene
             Scene scene = new Scene(root);
