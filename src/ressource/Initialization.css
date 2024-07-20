@@ -16,10 +16,21 @@
 	-fx-pref-height:35px;
 }
 
-
+#MarginField:focused,
+#TopField:focused,
+#LeftField:focused,
+#RightField:focused,
+#BottomField:focused{
+	-fx-background-color:  #504B4B ;
+	
+}
 .combo-box{
-		-fx-border-color: #F4F1F1;
-		-fx-background-color:black;
+	-fx-pref-height:35px;
+	-fx-border-color: #F4F1F1;
+	-fx-background-color:black;
+	-fx-border-radius:8px;
+	-fx-background-radius:8px;
+	-fx-border-width:1.5px;
 }
 
 
@@ -32,11 +43,12 @@
     -fx-background-color: black ;
     -fx-text-fill: white ;
     -fx-font-family: "Calibri" ;
-    -fx-font-size:14px;
+    -fx-font-size:15px;
 }
 .combo-box .combo-box-popup .list-cell:hover {
     
     -fx-background-color:  #504B4B ;
+    	-fx-cursor: hand;
 }
 
 

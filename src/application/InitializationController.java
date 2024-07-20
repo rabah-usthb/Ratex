@@ -74,14 +74,20 @@ private void handleKeyEvent(KeyEvent event,TextField field) {
 
 private void decrementField(TextField field) {
 	double number =Double.parseDouble(field.getText());
-	number = number-0.1;
-	field.setText(String.valueOf(number));
+	if(number-0.1>=0) {
+	DecimalFormat df = new DecimalFormat("#.##");
+	field.setText(String.valueOf(Double.parseDouble(df.format(number-0.1))));
+	}
+	else {
+		field.setText("0.00");
+
+	}
 }
 
 private void incrementField(TextField field) {
 	double number =Double.parseDouble(field.getText());
-	number = number+0.1;
-	field.setText(String.valueOf(number));
+	DecimalFormat df = new DecimalFormat("#.##");
+	field.setText(String.valueOf(Double.parseDouble(df.format(number+0.1))));
 }
 
 private boolean IsFloat(String text) {
@@ -168,6 +174,10 @@ private void setUpInputListener(TextField field) {
 			
 		
 		setupKeyEventHandling(MarginField);
+		setupKeyEventHandling(TopField);
+		setupKeyEventHandling(LeftField);
+		setupKeyEventHandling(RightField);
+		setupKeyEventHandling(BottomField);
 		setUpInputListener(TopField);
 		setUpInputListener(MarginField);
 		setUpInputListener(LeftField);
