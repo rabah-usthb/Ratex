@@ -115,6 +115,12 @@ private void setVisibilityPoly(boolean Isvisible) {
 	
 }
 
+private void setPolyFieldValue(String text) {
+	TopField.setText(text);
+	LeftField.setText(text);
+	RightField.setText(text);
+	BottomField.setText(text);
+}
 @FXML
 private void switchButtonToPoly() {
 	
@@ -124,6 +130,10 @@ private void switchButtonToPoly() {
 		MonoButton.setStyle("-fx-background-color:#504B4B;-fx-text-fill: #504B4B;-fx-cursor: none;");
 		PolyButton.setStyle("-fx-background-color: black;-fx-text-fill: white;-fx-cursor: hand;");
 	    clicked =1;
+	    String MarginText=MarginField.getText();
+	    if(!MarginText.isBlank()) {
+	    	setPolyFieldValue(MarginText);
+	    }
 	}
 	
 }

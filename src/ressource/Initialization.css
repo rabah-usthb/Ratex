@@ -60,6 +60,7 @@
 }
 
 .button{
+	-fx-cursor:hand;
 	-fx-border-width:1.5px;
 	-fx-border-color: #DBDBDB;
 	-fx-text-fill: white;
