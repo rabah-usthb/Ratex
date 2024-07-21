@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
 
@@ -26,7 +27,16 @@ public class InitializationController implements Initializable {
 	private static String DocumentType[] = {"article","report","proc","book","letter","memoir","beamer","minimal","slides"}; 
     @FXML
     private ComboBox<String> TypeComboBox;
-
+@FXML
+HBox MarginBox;
+@FXML
+HBox TopBox;
+@FXML
+HBox LeftBox;
+@FXML
+HBox RightBox;
+@FXML
+HBox BottomBox;
 @FXML
 Button MonoButton;
 @FXML
@@ -105,7 +115,7 @@ private boolean IsFloat(String text) {
 
 private void setVisibilityMono(boolean Isvisible) {
 	MarginLabel.setVisible(Isvisible);
-	MarginField.setVisible(Isvisible);
+	MarginBox.setVisible(Isvisible);
 }
 
 private void setVisibilityPoly(boolean Isvisible) {
@@ -113,10 +123,10 @@ private void setVisibilityPoly(boolean Isvisible) {
 	LeftLabel.setVisible(Isvisible);
 	RightLabel.setVisible(Isvisible);
 	BottomLabel.setVisible(Isvisible);
-	TopField.setVisible(Isvisible);
-	LeftField.setVisible(Isvisible);
-	RightField.setVisible(Isvisible);
-	BottomField.setVisible(Isvisible);
+	TopBox.setVisible(Isvisible);
+	LeftBox.setVisible(Isvisible);
+	RightBox.setVisible(Isvisible);
+	BottomBox.setVisible(Isvisible);
 	
 }
 

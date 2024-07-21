@@ -2,27 +2,23 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="388.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.testController">
-   <children>
-      <HBox alignment="CENTER" layoutX="109.0" layoutY="98.0" prefHeight="53.0" prefWidth="122.0">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <children>
-            <Button fx:id="MonoButton" alignment="CENTER" onAction="#switchButtonToPoly" prefHeight="51.0" prefWidth="84.0" text="Mono" HBox.hgrow="ALWAYS" />
-            <Line endX="76.34160614013672" endY="-530.3947143554688" fill="BLACK" startX="76.3062515258789" startY="-582.3340454101562" strokeWidth="1.5" />
-            <Button fx:id="PolyButton" alignment="CENTER" onAction="#switchButtonToMono" prefHeight="51.0" prefWidth="84.0" text="Poly" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-   </children>
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
    <padding>
       <Insets left="200.0" />
    </padding>
+   <children>
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="142.0" prefHeight="33.0" prefWidth="347.0">
+         <children>
+            <TextField maxHeight="1.7976931348623157E308" prefHeight="25.0" prefWidth="293.0" HBox.hgrow="ALWAYS" />
+            <Button accessibleRole="TEXT" maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="Button" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </children>
 </Pane>
