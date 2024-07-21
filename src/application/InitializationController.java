@@ -6,8 +6,10 @@ import java.text.ParseException;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -15,11 +17,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 
 
 
 public class InitializationController implements Initializable {
-	 static boolean Updated = false;
+
 	private static String DocumentType[] = {"article","report","proc","book","letter","memoir","beamer","minimal","slides"}; 
     @FXML
     private ComboBox<String> TypeComboBox;
@@ -49,6 +52,8 @@ TextField RightField;
 @FXML 
 TextField BottomField;
 
+@FXML
+Pane PaneInit;
 
 static int clicked =0;
 
@@ -162,6 +167,40 @@ private void setUpInputListener(TextField field) {
 
 } 
 
+
+ void FocusFieldShortKey(KeyEvent event) {
+	
+	if(clicked==1) {
+	
+	if(event.getCode() == KeyCode.UP&& event.isControlDown()) {
+	
+		TopField.requestFocus();
+
+	}
+	else if(event.getCode() == KeyCode.RIGHT&& event.isControlDown()) {
+	
+		
+		RightField.requestFocus();
+		
+	}
+	else if(event.getCode() == KeyCode.LEFT&& event.isControlDown()) {
+	
+		LeftField.requestFocus();
+	}
+	else if(event.getCode() == KeyCode.DOWN&& event.isControlDown()) {
+	
+		BottomField.requestFocus();
+	}
+	}
+	else {
+		if((event.getCode() == KeyCode.UP||event.getCode()==KeyCode.DOWN||event.getCode()==KeyCode.LEFT||event.getCode()==KeyCode.RIGHT) && event.isControlDown()) {
+			MarginField.requestFocus();
+			
+		}
+	
+	}
+}
+
 @FXML
  private void switchButtonToMono() {
 	if(clicked==1) {
@@ -177,13 +216,30 @@ private void setUpInputListener(TextField field) {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
+		MarginField.setFocusTraversable(false);
+		TopField.setFocusTraversable(false);
+		LeftField.setFocusTraversable(false);
+		RightField.setFocusTraversable(false);
+		BottomField.setFocusTraversable(false);
+		
 		for(String type :DocumentType) {
 			TypeComboBox.getItems().add(type);
 		}
-		
+		Platform.runLater(() -> {
+			Scene scene = PaneInit.getScene();
+            if (scene != null) {
+                scene.setOnKeyPressed(this::FocusFieldShortKey);
+            } else {
+                System.out.println("Scene is null.");
+            }
+        });
 			
-		
-		setupKeyEventHandling(MarginField);
+		TopField.setOnKeyPressed(this::FocusFieldShortKey);
+	    BottomField.setOnKeyPressed(this::FocusFieldShortKey);
+		LeftField.setOnKeyPressed(this::FocusFieldShortKey);
+		RightField.setOnKeyPressed(this::FocusFieldShortKey);
+        
+	    setupKeyEventHandling(MarginField);
 		setupKeyEventHandling(TopField);
 		setupKeyEventHandling(LeftField);
 		setupKeyEventHandling(RightField);
@@ -191,7 +247,7 @@ private void setUpInputListener(TextField field) {
 		setUpInputListener(TopField);
 		setUpInputListener(MarginField);
 		setUpInputListener(LeftField);
-		setUpInputListener(RightField);
+	    setUpInputListener(RightField);
 		setUpInputListener(BottomField);
 	}
 
