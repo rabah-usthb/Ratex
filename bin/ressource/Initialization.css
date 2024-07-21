@@ -96,7 +96,8 @@
 	-fx-cursor: none;
 }
 
-#ConfirmButton{
+#ConfirmButton,
+#ConvertButton{
 	-fx-cursor:hand;
 	-fx-border-width:1.5px;
 	-fx-border-color: #DBDBDB;
@@ -107,7 +108,8 @@
 	-fx-background-radius:10px;
 	-fx-font-size:15px;
 }
-#ConfirmButton:hover{
+#ConfirmButton:hover,
+#ConvertButton:hover{
 	-fx-background-color: #504B4B;
 }
 

@@ -28,7 +28,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="LeftLabel" layoutX="342.0" layoutY="189.0" prefHeight="20.0" prefWidth="73.0" text="left-Margin" visible="false">
+      <Label fx:id="LeftLabel" layoutX="342.0" layoutY="179.0" prefHeight="20.0" prefWidth="73.0" text="left-Margin" visible="false">
          <font>
             <Font size="14.0" />
          </font>
@@ -78,5 +78,6 @@
             <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="48.0" styleClass="Unit" text="mm" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
+      <Button fx:id="ConvertButton" layoutX="90.0" layoutY="357.0" mnemonicParsing="false" onAction="#OpenConvertWindow" text="Convert" />
    </children>
 </Pane>

@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -8,7 +9,9 @@ import java.util.function.UnaryOperator;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -19,6 +22,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 
 
@@ -66,6 +70,26 @@ TextField BottomField;
 Pane PaneInit;
 
 static int clicked =0;
+@FXML
+private void OpenConvertWindow() {
+	try {
+	 Stage convertStage = new Stage();
+	 FXMLLoader loader = new FXMLLoader(getClass().getResource("/ressource/Convert.fxml"));
+     String css = this.getClass().getResource("/ressource/Convert.css").toExternalForm();
+     Parent root;
+	
+		root = loader.load();
+	
+     // Set the FXML content to the scene
+     Scene scene = new Scene(root);
+     scene.getStylesheets().add(css);
+     convertStage.setScene(scene);
+     convertStage.setResizable(false);
+     convertStage.show();
+	}catch(IOException e) {
+		
+	}
+}
 
 
 private void setupKeyEventHandling(TextField field) {
