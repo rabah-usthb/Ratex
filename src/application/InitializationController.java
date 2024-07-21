@@ -88,6 +88,7 @@ private void handleKeyEvent(KeyEvent event,TextField field) {
 }
 
 private void decrementField(TextField field) {
+	if(!field.getText().isBlank()) {
 	double number =Double.parseDouble(field.getText());
 	if(number-0.1>=0) {
 	DecimalFormat df = new DecimalFormat("#.##");
@@ -97,12 +98,15 @@ private void decrementField(TextField field) {
 		field.setText("0.00");
 
 	}
+	}
 }
 
 private void incrementField(TextField field) {
+	if(!field.getText().isBlank()) {
 	double number =Double.parseDouble(field.getText());
 	DecimalFormat df = new DecimalFormat("#.##");
 	field.setText(String.valueOf(Double.parseDouble(df.format(number+0.1))));
+}
 }
 
 private boolean IsFloat(String text) {
