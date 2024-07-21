@@ -175,27 +175,29 @@ private void setUpInputListener(TextField field) {
 	if(event.getCode() == KeyCode.UP&& event.isControlDown()) {
 	
 		TopField.requestFocus();
+	    TopField.selectEnd();
 
 	}
 	else if(event.getCode() == KeyCode.RIGHT&& event.isControlDown()) {
-	
-		
 		RightField.requestFocus();
-		
+		RightField.selectEnd();
 	}
 	else if(event.getCode() == KeyCode.LEFT&& event.isControlDown()) {
 	
 		LeftField.requestFocus();
+		LeftField.selectEnd();
 	}
 	else if(event.getCode() == KeyCode.DOWN&& event.isControlDown()) {
 	
 		BottomField.requestFocus();
+		BottomField.selectEnd();
+		
 	}
 	}
 	else {
 		if((event.getCode() == KeyCode.UP||event.getCode()==KeyCode.DOWN||event.getCode()==KeyCode.LEFT||event.getCode()==KeyCode.RIGHT) && event.isControlDown()) {
 			MarginField.requestFocus();
-			
+			MarginField.selectEnd();
 		}
 	
 	}
