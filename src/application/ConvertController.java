@@ -43,7 +43,7 @@ private void selectCm() {
 }
 @FXML
 private void selectPt() {
-	selectedUnit = "cm";
+	selectedUnit = "pt";
 	cmButton.setSelected(false);
 	inButton.setSelected(false);
 	mmButton.setSelected(false);

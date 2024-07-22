@@ -30,7 +30,7 @@ import javafx.stage.Stage;
 
 
 public class InitializationController implements Initializable {
-
+    private String currentUnity="mm";
 	private static String DocumentType[] = {"article","report","proc","book","letter","memoir","beamer","minimal","slides"}; 
     @FXML
     private ComboBox<String> TypeComboBox;
@@ -256,6 +256,57 @@ private void setUpInputListener(TextField field) {
 	 
  }
 
+double convertToPt(double number) {
+	if(currentUnity.equals("mm")) {
+	return number=(double)number/0.35;
+	}
+	else if(currentUnity.equals("cm")) {
+	return number=(double)number/0.035; 
+	}
+	else if(currentUnity.equals("in")) {
+	return number=number*72;
+	}
+	return number;
+}
+
+double convertToIn(double number) {
+	if(currentUnity.equals("mm")) {
+	return number=(double)number/25.4;
+	}
+	else if(currentUnity.equals("cm")) {
+	return number=(double)number/2.54; 
+	}
+	else if(currentUnity.equals("pt")) {
+	return	number=(double)number/72;
+	}
+	return number;
+}
+double convertToCm(double number) {
+	if(currentUnity.equals("mm")) {
+	return	number=(double)number/10;
+	}
+	else if(currentUnity.equals("in")) {
+	return	number=number*2.54; 
+	}
+	else if(currentUnity.equals("pt")) {
+	return	number=number*0.035;
+	}
+	return number;
+}
+
+double convertToMm(double number) {
+	if(currentUnity.equals("cm")) {
+		return number=number*10;
+	}
+	else if(currentUnity.equals("in")) {
+	return	number=number*25.4; 
+	}
+	else if(currentUnity.equals("pt")) {
+	return	number=number*0.35;
+	}
+	return number;
+}
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -305,6 +356,14 @@ private void setUpInputListener(TextField field) {
 
  }
 	
+ 
+ boolean IsFieldEmpty(TextField field) {
+	 return field.getText().isBlank() && field.getText().isEmpty();
+ }
+ 
+ double fetchNumberField(TextField field) {
+	 return Double.parseDouble(field.getText());
+ }
  void Convert(String Unit) {
 	
 	
@@ -317,7 +376,35 @@ private void setUpInputListener(TextField field) {
 	for(Button button : buttons) {
 		button.setText(Unit);
 	}
-	 
+	
+	
+	switch(Unit) {
+	case "mm":
+	  if(!IsFieldEmpty(MarginField)) {   
+		  double number = fetchNumberField(MarginField);
+		  MarginField.setText(String.valueOf(convertToMm(number)));
+	  }
+		break;
+	case "in":
+		if(!IsFieldEmpty(MarginField)) {   
+			  double number = fetchNumberField(MarginField);
+			  MarginField.setText(String.valueOf(convertToIn(number)));
+		  }
+		break;
+	case "cm":
+		if(!IsFieldEmpty(MarginField)) {   
+			  double number = fetchNumberField(MarginField);
+			  MarginField.setText(String.valueOf(convertToCm(number)));
+		  }
+		break;
+	case "pt":
+		if(!IsFieldEmpty(MarginField)) {   
+			  double number = fetchNumberField(MarginField);
+			  MarginField.setText(String.valueOf(convertToPt(number)));
+		  }
+		break;
+	}
+	 currentUnity = Unit;
  }
 
 }
