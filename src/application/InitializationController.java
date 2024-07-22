@@ -5,12 +5,15 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -65,7 +68,6 @@ TextField LeftField;
 TextField RightField;
 @FXML 
 TextField BottomField;
-
 @FXML
 Pane PaneInit;
 
@@ -79,7 +81,8 @@ private void OpenConvertWindow() {
      Parent root;
 	
 		root = loader.load();
-	
+	 ConvertController convert = loader.getController();
+	 convert.setInit(this);
      // Set the FXML content to the scene
      Scene scene = new Scene(root);
      scene.getStylesheets().add(css);
@@ -292,6 +295,29 @@ private void setUpInputListener(TextField field) {
 	}
 
 	
-    
+ Set<Button> fetchButtonFromHbox(HBox box){
+	 Set<Node> nodes = box.lookupAll(".Unit");
+     // Cast the nodes to Button
+    return nodes.stream()
+           .filter(node -> node instanceof Button)
+           .map(node -> (Button) node)
+           .collect(Collectors.toSet());
+
+ }
+	
+ void Convert(String Unit) {
+	
+	
+     Set<Button> buttons = fetchButtonFromHbox(MarginBox);
+     buttons.addAll(fetchButtonFromHbox(TopBox));
+     buttons.addAll(fetchButtonFromHbox(BottomBox));
+     buttons.addAll(fetchButtonFromHbox(LeftBox));
+     buttons.addAll(fetchButtonFromHbox(RightBox));
+     System.out.println(buttons);
+	for(Button button : buttons) {
+		button.setText(Unit);
+	}
+	 
+ }
 
 }

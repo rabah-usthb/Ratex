@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="204.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="204.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ConvertController">
   <columnConstraints>
     <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -19,16 +19,16 @@
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <children>
-            <RadioButton alignment="TOP_CENTER" contentDisplay="CENTER" focusTraversable="false" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="mm" HBox.hgrow="ALWAYS" />
-            <RadioButton alignment="TOP_CENTER" contentDisplay="CENTER" focusTraversable="false" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="cm" HBox.hgrow="ALWAYS" />
-            <RadioButton alignment="TOP_CENTER" contentDisplay="CENTER" focusTraversable="false" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="inch" HBox.hgrow="ALWAYS" />
-            <RadioButton alignment="TOP_CENTER" contentDisplay="CENTER" focusTraversable="false" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="point" HBox.hgrow="ALWAYS" />
+            <RadioButton fx:id="mmButton" alignment="TOP_CENTER" contentDisplay="CENTER" focusTraversable="false" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectMm" selected="true" text="mm" HBox.hgrow="ALWAYS" />
+            <RadioButton fx:id="cmButton" alignment="TOP_CENTER" contentDisplay="CENTER" focusTraversable="false" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectCm" text="cm" HBox.hgrow="ALWAYS" />
+            <RadioButton fx:id="inButton" alignment="TOP_CENTER" contentDisplay="CENTER" focusTraversable="false" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectIn" text="inch" HBox.hgrow="ALWAYS" />
+            <RadioButton fx:id="ptButton" alignment="TOP_CENTER" contentDisplay="CENTER" focusTraversable="false" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectPt" text="point" HBox.hgrow="ALWAYS" />
          </children>
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
       </HBox>
-      <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="1">
+      <Button fx:id="ApplyButton" mnemonicParsing="false" onAction="#applyConversion" text="Apply" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets right="25.0" top="25.0" />
          </GridPane.margin>
