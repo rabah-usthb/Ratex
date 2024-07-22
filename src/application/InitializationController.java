@@ -30,7 +30,9 @@ import javafx.stage.Stage;
 
 
 public class InitializationController implements Initializable {
-    private String currentUnity="mm";
+	private static DecimalFormat df = new DecimalFormat("#.##");
+	
+	private String currentUnity="mm";
 	private static String DocumentType[] = {"article","report","proc","book","letter","memoir","beamer","minimal","slides"}; 
     @FXML
     private ComboBox<String> TypeComboBox;
@@ -256,6 +258,11 @@ private void setUpInputListener(TextField field) {
 	 
  }
 
+void setNumberField(TextField field , double number) {
+	field.setText(String.valueOf(Double.parseDouble(df.format(number))));
+	
+}
+
 double convertToPt(double number) {
 	if(currentUnity.equals("mm")) {
 	return number=(double)number/0.35;
@@ -357,6 +364,40 @@ double convertToMm(double number) {
  }
 	
  
+ void convertField(TextField field,String Unit) {
+	 if(!IsFieldEmpty(field)) {   
+		  double number = fetchNumberField(field);
+		  double convertedNumber=0;
+		  switch(Unit) {
+		  case "mm":
+			  convertedNumber = convertToMm(number);
+			  break;
+		  case "cm":
+			  convertedNumber = convertToCm(number);
+			  break;
+		  case "pt":
+			  convertedNumber = convertToPt(number);
+			break;
+		  case "in":
+			  convertedNumber = convertToIn(number);
+			break;
+		  	  
+		  }
+		  setNumberField(field,convertedNumber); 
+	  }
+ }
+ 
+ void convertPoly(String Unit) {
+	 convertField(TopField, Unit);
+	 convertField(LeftField, Unit);
+	 convertField(RightField, Unit);
+	 convertField(BottomField, Unit);
+ }
+ 
+ void convertMono(String Unit) {
+	 convertField(MarginField, Unit);
+ }
+ 
  boolean IsFieldEmpty(TextField field) {
 	 return field.getText().isBlank() && field.getText().isEmpty();
  }
@@ -377,34 +418,9 @@ double convertToMm(double number) {
 		button.setText(Unit);
 	}
 	
-	
-	switch(Unit) {
-	case "mm":
-	  if(!IsFieldEmpty(MarginField)) {   
-		  double number = fetchNumberField(MarginField);
-		  MarginField.setText(String.valueOf(convertToMm(number)));
-	  }
-		break;
-	case "in":
-		if(!IsFieldEmpty(MarginField)) {   
-			  double number = fetchNumberField(MarginField);
-			  MarginField.setText(String.valueOf(convertToIn(number)));
-		  }
-		break;
-	case "cm":
-		if(!IsFieldEmpty(MarginField)) {   
-			  double number = fetchNumberField(MarginField);
-			  MarginField.setText(String.valueOf(convertToCm(number)));
-		  }
-		break;
-	case "pt":
-		if(!IsFieldEmpty(MarginField)) {   
-			  double number = fetchNumberField(MarginField);
-			  MarginField.setText(String.valueOf(convertToPt(number)));
-		  }
-		break;
-	}
-	 currentUnity = Unit;
+	convertMono(Unit);
+	convertPoly(Unit);
+		 currentUnity = Unit;
  }
 
 }
